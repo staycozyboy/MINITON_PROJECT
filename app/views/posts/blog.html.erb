@@ -3,7 +3,7 @@
         <div class="col s12 m4">
             <div class="card">
                 <div class="card-image">
-                    <img src="http://materializecss.com/images/office.jpg" />
+                    <img src="<%= @user.avatar.url %>" />
                 </div>
                 <div class="card-content">
                     <div class="card-title"><%= @user.user_name %></div>
@@ -22,8 +22,17 @@
             <% @posts.each do |post| %>
                 <div class="card">
     <div class="card-content">
+        <% if post.user.avatar%>
+            <img class="circle" src="<%= post.user.avatar.thumb.url%>">
+        <%end%>
         <span class="card-title"><%= post.user.user_name %></span>
         <span><%= post.created_at %></span>
+        <div class="card-image">
+            <% if post.image.url %>
+            <img src="<%= post.image.url %>" />
+            <% end %>
+        </div>
+        
         <p><%= post.content %></p>
     </div>
 

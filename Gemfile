@@ -5,6 +5,8 @@ git_source(:github) do |repo_name|
   "https://github.com/#{repo_name}.git"
 end
 
+# Custom Gem
+gem 'mini_magick'
 gem 'materialize-sass', '~> 0.100.2'
 gem 'devise'
 gem 'carrierwave'
