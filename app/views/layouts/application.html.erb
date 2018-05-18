@@ -32,7 +32,7 @@
           </div>
           <%if user_signed_in?%>
           <li class="nav-item">
-            <%= link_to "#{current_user.user_name}", posts_blog_path, class: "nav-link name"%>
+            <%= link_to "#{current_user.user_name}", posts_blog_path(user_id: current_user.id), class: "nav-link name"%>
           </li>
           <li class="nav-item">
         <%= link_to '로그아웃', destroy_user_session_path, method: :delete, class: "nav-link btn_login"%>

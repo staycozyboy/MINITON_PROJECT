@@ -24,7 +24,7 @@ class PostsController < ApplicationController
   end
 
   def blog
-    @user = User.find(params[:id])
+    @user = User.find(params[:user_id])
     @posts = @user.posts
   end
 
