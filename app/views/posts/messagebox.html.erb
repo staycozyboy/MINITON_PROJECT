@@ -1,0 +1,44 @@
+<h1>받은쪽지함</h1>
+<table>
+  <thead>
+    <tr>
+      <th>보낸 사람</th>
+      <th>내용</th>
+      <th>Posted at</th>
+      <th colspan="1"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @messages_sended.each do |message| %>
+      <tr>
+        <td><%= User.find(message.sender_id).user_name %></td>
+        <td><%= message.content%></td>
+        <td><%= message.created_at.to_s(0..9)%></td>
+        <td><%= link_to '삭제', messages_destroy_path(id: message.id), data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+<h1>보낸쪽지함</h1>
+<table>
+  <thead>
+    <tr>
+      <th>받은 사람</th>
+      <th>내용</th>
+      <th>Posted at</th>
+      <th colspan="1"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @messages_send.each do |message| %>
+      <tr>
+        <td><%= User.find(message.sender_id).user_name %></td>
+        <td><%= message.content%></td>
+        <td><%= message.created_at%></td>
+        <td><%= link_to '삭제', messages_destroy_path(id: message.id), data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>

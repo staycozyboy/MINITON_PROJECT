@@ -1,0 +1,6 @@
+<%= form_tag messages_create_path do%>
+    <input type="hidden" name="sended_id" value="<%= @sended.id %>" />
+    <input type="hidden" name="sender_id" value="<%= current_user.id %>" />
+    <input type="text-area" name="content">
+    <input type="submit" name="action" value="작성">
+<%end%>

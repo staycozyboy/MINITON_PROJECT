@@ -7,6 +7,11 @@ Rails.application.routes.draw do
   end
   get "posts/blog/:user_id" => 'posts#blog', as: 'posts_blog'
 
+  get "/messages/new/:user_id" => "messages#new", as:"messages_new"
+  post "/messages/create" => 'messages#create', as: "messages_create"
+  get "/messages/destroy/:id" => 'messages#destroy', as: "messages_destroy"
+  get "/messagebox" => 'posts#messagebox'
+
   resources :follows, only: [:create, :destroy] 
 
   resources :reviews, only: [:create, :destroy]
