@@ -7,6 +7,7 @@ class HomeController < ApplicationController
     end
     @tag_sorted = tag_counts.sort_by { |x,y| y }
     @tag_sorted.reverse!
+    
     puts "#{@tag_sorted}"
     puts "#{@tag_sorted[0]}"
     puts "#{@tag_sorted[0].first}"

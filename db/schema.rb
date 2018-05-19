@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180519104747) do
+ActiveRecord::Schema.define(version: 20180519171759) do
 
   create_table "follows", force: :cascade do |t|
     t.integer  "follower_id"
@@ -29,6 +29,16 @@ ActiveRecord::Schema.define(version: 20180519104747) do
     t.datetime "updated_at", null: false
     t.index ["post_id"], name: "index_likes_on_post_id"
     t.index ["user_id"], name: "index_likes_on_user_id"
+  end
+
+  create_table "messages", force: :cascade do |t|
+    t.integer  "sender_id"
+    t.integer  "sended_id"
+    t.string   "content"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["sended_id"], name: "index_messages_on_sended_id"
+    t.index ["sender_id"], name: "index_messages_on_sender_id"
   end
 
   create_table "posts", force: :cascade do |t|
