@@ -8,50 +8,40 @@
 
 <body>
 
-                    <header>
-
-        <div class="container photo-flex">
-            <div class="profile-photo-box">
-                <img src="/assets/profile.jpg", class="profile-photo"> 
-            </div>
-            <div>
-            <p>PONY</p>
-            <button type="button" class="btn btn-sm loginbutton ">follow</button>
-            <button type="button" class="btn btn-sm loginbutton ">message</button>
-
-          <div class="d-flex">
-          <p class="follow">게시물 &nbsp;</p><p class="follow name">530</p>
-          <div class="space"></div>
-          <p class="follow">팔로워 &nbsp;</p><p class="follow name">40.7k</p>
-          <div class="space"></div>
-          <p class="follow">팔로우 &nbsp;</p><p class="follow name">1</p>
-              </div>
-              </div>
+<header>
+        <div class="container d-flex margin-top">
+            <img src="<%= @user.avatar.url %>", class="rounded"/>
+        <div class="font-profile">
+        <h3><%= @user.user_name %>         
+        <% if user_signed_in? && current_user != @user %>
+                <% if current_user.followings.include?(@user) %>
+                    <%= form_tag follow_path(@user.id), method: :delete, class: "right" do %>
+                <button class="btn loginbutton">UNFOLLOW</button>
+                <button class="btn loginbutton">MESSAGE</button>
+                <% end %>
+                <% else %>
+                    <%= form_tag follows_path, class: "right" do %>
+                    <input type="hidden" name="followed_id" value="<%= @user.id %>" />
+                    <button class="btn loginbutton">FOLLOW</button>
+                    <button class="btn loginbutton">MESSAGE</button>
+                    <% end %>
+                <% end %>
+            <%else%>
+            <% end %>
+        </h3>
+        <h5><%= @posts.count %> <strong>POSTS</strong>
+        <%=@user.followers.length%> <strong>FOLLOWERS</strong>   <%=@user.followings.length%> <strong>FOLLOWING</strong> 
+</h5>
+        </div>
         </div>
 
-      </header>    
 
-      
+            
+    </header>
+
+
 <div class="container">
-    <div class="row">
-        <div class="col s12 m4">
-            <div class="card">
-                <div class="card-image">
-                    <img src="<%= @user.avatar.url %>" />
-                </div>
-                <div class="card-content">
-                    <div class="card-title"><%= @user.user_name %></div>
-                    <p>이메일 : <%= @user.email %></p>
-                    <p>올린 글 개수 : <%= @posts.count %></p>
-                    <p>팔로워 : <%=@user.followers.length%></p>
-                    <p>팔로잉 : <%=@user.followings.length%></p>
-                    
   
-                    
-
-                </div>
-            </div>
-        </div>
         <div class="col s12 m8">
             <% @posts.each do |post| %>
                 <div class="card">
@@ -71,29 +61,15 @@
     </div>
 
     <div class="card-action">
-        <%= "#{post.likes.count} 명이 좋아합니다."%>
+        <div class="chal nav-items">
+        <%= "GOT #{post.likes.count} DDUCK!"%>
+        </div>
         <%if current_user.is_like?(post)%>
-          <%= link_to "좋아요 취소", post_like_path(post), method: "post"%>
+          <%= link_to image_tag("logo3.png", :width => 120, :height => 60), post_like_path(post), method: "post"%>
         <%else%>
-          <%= link_to "좋아요", post_like_path(post), method: "post"%>
-        <%end%> 
-
-        <% if user_signed_in? && current_user != post.user %>
-            <% if current_user.followings.include?(post.user) %>
-                <%= form_tag follow_path(post.user.id), method: :delete, class: "right" do %>
-            <button class="btn">언팔</button>
-            <% end %>
-            <% else %>
-                <%= form_tag follows_path, class: "right" do %>
-                <input type="hidden" name="followed_id" value="<%= post.user.id %>" />
-                <button class="btn">팔로우</button>
-                <% end %>
-            <% end %>
-        <%else%>
-        <% end %>
-        
-            
-        
+          <%= link_to image_tag("logo.png", :width => 120, :height => 60), post_like_path(post), method: "post"%>
+          
+        <%end%>         
     </div>
 </div>
             <% end %>

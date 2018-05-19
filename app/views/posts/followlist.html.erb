@@ -1,0 +1,23 @@
+<head>
+<br>
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+<div class="container followstar">
+<i class="large material-icons nav-items">star</i>
+</div>
+<br> <br>
+</head>  
+<br> <br>
+<body>
+
+<div class="container followcontainer">
+<%current_user.followings.each do |follow|%>
+<div class="followcontainer2">
+    <%= link_to image_tag(follow.avatar.url, :class => "followerimage"), posts_blog_path(user_id: follow.id) %>
+    <div class="followname font-gray">
+       <%= follow.user_name%>
+    </div>
+</div>
+<%end%>
+</div>
+
+</body>

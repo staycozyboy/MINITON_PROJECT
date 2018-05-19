@@ -5,6 +5,7 @@ Rails.application.routes.draw do
   end
   get "posts/blog/:user_id" => 'posts#blog', as: 'posts_blog'
 
+  get "/followlist" => 'posts#followlist', as: 'posts_followlist'
   resources :follows, only: [:create, :destroy] 
 
   resources :reviews, only: [:create, :destroy]
@@ -12,6 +13,7 @@ Rails.application.routes.draw do
   devise_for :users
   
   root 'home#index'
+
 
   get 'home/index' => 'home#index'
   
