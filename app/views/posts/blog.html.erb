@@ -11,6 +11,20 @@
                     <p>올린 글 개수 : <%= @posts.count %></p>
                     <p>팔로워 : <%=@user.followers.length%></p>
                     <p>팔로잉 : <%=@user.followings.length%></p>
+                   
+                    <% if user_signed_in? && current_user != @user %>
+            <% if current_user.followings.include?(@user) %>
+                <%= form_tag follow_path(@user.id), method: :delete, class: "right" do %>
+            <button class="btn">언팔</button>
+            <% end %>
+            <% else %>
+                <%= form_tag follows_path, class: "right" do %>
+                <input type="hidden" name="followed_id" value="<%= @user.id %>" />
+                <button class="btn">팔로우</button>
+                <% end %>
+            <% end %>
+        <%else%>
+        <% end %>
                     
 
                     
