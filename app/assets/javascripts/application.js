@@ -13,6 +13,22 @@
 //= require jquery
 //= require jquery_ujs
 //= require turbolinks
+
+
 //= require_tree .
 
+<<<<<<< HEAD
 
+=======
+document.addEventListener('DOMContentLoaded', function() {
+    var elems = document.querySelectorAll('.datepicker');
+    var instances = M.Datepicker.init(elems, options);
+  });
+
+  // Or with jQuery
+
+  $(document).ready(function(){
+    $('.datepicker').datepicker();
+  });
+          
+>>>>>>> 5a8c5f8bea55d22fbc4f70400156d8123d54c966
