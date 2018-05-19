@@ -26,6 +26,7 @@ class PostsController < ApplicationController
   def blog
     @user = User.find(params[:user_id])
     @posts = @user.posts
+    @reviews = Review.where(reviewed_id: @user.id)
   end
 
   # POST /posts
@@ -77,7 +78,7 @@ class PostsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def post_params
-      params.require(:post).permit(:title, :content, :user)
+      params.require(:post).permit(:title, :content, :user, :image)
     end
 
     def check_ownership

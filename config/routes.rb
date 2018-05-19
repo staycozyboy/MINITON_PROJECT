@@ -1,10 +1,13 @@
 Rails.application.routes.draw do
+
   resources :posts do
     post "/like", to: "likes#like_toggle"
   end
   get "posts/blog/:user_id" => 'posts#blog', as: 'posts_blog'
 
   resources :follows, only: [:create, :destroy] 
+
+  resources :reviews, only: [:create, :destroy]
   
   devise_for :users
   root 'home#index'
