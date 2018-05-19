@@ -81,7 +81,7 @@
             <% end %>
         </div>
         
-        <p><%= post.content %></p>
+        <p><%= render_with_hashtags(post.content) %></p>
     </div>
 
     <div class="card-action">
@@ -127,12 +127,5 @@
 <% @reviews.each do |review| %>
     <%= User.find(review.reviewer_id).user_name%><br>
     <%= review.content %><br>
-<<<<<<< HEAD
     <%= link_to "삭제", review_path(id: review.id), method: 'delete'%><br>
 <%end%>
-=======
-    <%= link_to "삭제", review_path(:id), method: 'delete'%><br>
-<%end%>
-
-</body>
->>>>>>> 5a8c5f8bea55d22fbc4f70400156d8123d54c966

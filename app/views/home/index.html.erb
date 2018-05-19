@@ -17,9 +17,11 @@
     <div class="col s12"> 
       <div class="input-field col s12">
         <i class="material-icons prefix">search</i> 
-        <input type="text" id="autocomplete-input" class="autocomplete">
-        <label for="autocomplete-input">Search</label>  
-        <%= link_to "search", home_result_path %>
+        <form class="search_bar" action="/hashtag/<%params[:name]%>" method="get">
+          <input type="text" name="name" class="autocomplete">
+          <input type="submit" name="action">
+          <label for="/autocomplete-input">Search</label>  
+        </form>
       </div>
     </div>
     <div class="vide"> </div>  

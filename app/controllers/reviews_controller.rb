@@ -7,10 +7,6 @@ class ReviewsController < ApplicationController
     @review.reviewer_id=params[:reviewing_id]
     @review.content = params[:content]
     @review.save
-<<<<<<< HEAD
-    
-=======
->>>>>>> 5a8c5f8bea55d22fbc4f70400156d8123d54c966
 
     redirect_to :back
   end
