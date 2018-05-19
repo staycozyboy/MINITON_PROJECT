@@ -6,54 +6,33 @@
 
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-beta/js/materialize.min.js"></script>
   </head>
 
-  <body class="bg-light">
-  <div class="row bg-white">
-    <div class="col-2">
-    </div>
-    <div class="d-flex flex-column align-items-stretch col-8 nav-white">
-      <nav class="navbar navbar-expand-lg navbar-light d-flex justify-content-between nav-white">
-        <%= link_to image_tag("insta_logo.png", border: 0, class: "logo1"), root_path, class: "navbar-brand"%>
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-        </button>
+  <body>
+<nav class="white">
+      <div class="nav-wrapper d-flex">
+        <a href="#!" class="brand-logo"><%= link_to image_tag("logo.png", class:"LogoAbout")%></a>
+          <div class="d-flex">
+            
+            <div><i class="material-icons nav-items">search</i>
+            </div>
 
-      <%= link_to image_tag("seacrh.JPG", border: 0, class: "search_logo"), root_path, class: "navbar-brand"%>
-    
-      <ul class="navbar-nav" style="margin:0px;">
-      <div class="d-flex">
-        <li class="nav-item">
-        <%= link_to '게시판', posts_path, class: "nav-link btn btn-primary btn-board"%>
-      </li>
-          <div class="lil-space">
+            <div>
+              <input type="search" placeholder="" class="nav-items">
+            </div>
+          
           </div>
-          <%if user_signed_in?%>
-          <li class="nav-item">
-            <%= link_to "#{current_user.user_name}", posts_blog_path(user_id: current_user.id), class: "nav-link name"%>
-          </li>
-          <li class="nav-item">
-        <%= link_to '로그아웃', destroy_user_session_path, method: :delete, class: "nav-link btn_login"%>
-          </li>
-          <%else%>
-          <li class="nav-item">
-            <%= link_to '로그인', user_session_path, method: :post, class: "nav-link btn_login"%>
-          </li>
-        <%end%>
-      </nav>
-    </div>
-    <div class="col-2">
-    </div>
-  </div>
-  <div class="container">
-    <div class="row">
-      <div class="col-1">
+          
+        <ul class="right hide-on-med-and-down">  
+          <li><a href="badges.html"><i class="material-icons nav-items">view_module</i></a></li>
+          <li><a href="collapsible.html"><i class="material-icons nav-items">face</i></a></li>
+          <li><a href="mobile.html"><i class="material-icons nav-items">more_vert</i></a></li>
+        </ul>
       </div>
-      <div class="col-10">
+    </nav>
         <%= yield %>
       </div>
-      <div class="col-1">
-        
-      </div>
+
   </body>
 </html>
