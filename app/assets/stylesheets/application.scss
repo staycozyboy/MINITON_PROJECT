@@ -1,5 +1,5 @@
-@import "materialize";
 
+@import "materialize";
 .go {
     width: 500px;
 }
@@ -48,6 +48,7 @@
     border-radius: 50%;
 }
 
+<<<<<<< HEAD
 .mika{
     font-size: 32px;
     font-weight: 200;
@@ -57,37 +58,32 @@
     width: 100px;
     height: 30px;
 }
+=======
+>>>>>>> bb2f73400cf6b221a5f2a62da1ada355567c13cd
 
-.follow{
-    font-size: 16px;
+.vide{
+    height: 50px; 
 }
 
-.space{
-    width: 50px;
+body {
+    // background-color: rgb(223, 154, 165);
+    // color: rgb(223, 154, 165);
 }
 
-.lil-space{
-    width: 10px;
+.container2{
+    display: flex;
+    justify-content: center;
+}
+.row_1{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 200px;
+    width: 500px;
 }
 
-
-.name{
-    font-weight: bold;  
-}
-
-.bemo_post{
-    width: 294px;
-    height: 294px;
-    margin: 10px;
-}
-
-header{
-    height: 170px;
-    margin: 44px;
-}
-
-.btn-board{
-    color: white !important;
+.rr {
+    width: 30px;
 }
 
 .nav-white{
@@ -99,7 +95,7 @@ header{
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    margin-top: 20%;
+    margin-top: 10%;
 }
 a {
     text-align: center;
@@ -132,7 +128,7 @@ a {
     width: 250px;
     height: 320px;
     display: flex;
-    justify-content: space-around;
+    justify-content: space-between;
 }
 
 .card-image {
@@ -142,18 +138,14 @@ a {
 }
 
 .card-reveal {
-    width: 250px;
-    height: 320px;
+    width: 250px !important;
+    height: 300px !important;
 }
 
 .card {
     margin: 10%;
 }
 
-.feed {
-    display: flex;
-    margin: 30px;
-}
 
 .d-flex {
     display: flex;
@@ -169,6 +161,7 @@ a {
     color: rgb(223, 154, 165);
 }
 
+<<<<<<< HEAD
 .profile-photo-box {
     width: 292px;
     height: 152px;
@@ -192,3 +185,33 @@ a {
     color: white;
     background-color: rgb(223, 154, 165);
 }
+=======
+.loginbutton {
+    color: white;
+    background-color: rgb(223, 154, 165);
+}
+
+.feed {
+    display: flex;
+    justify-content: space-around;
+    margin: 30px;
+}
+
+.card-title {
+    font-family: 'Nanum Gothic', sans-serif;
+    font-style: rgba(75, 75, 60, 0.39);
+    font-size: 30px;
+}
+
+.to {
+    margin-top: 80%;
+}
+
+.makeupcontent {
+    height: 10%;
+}
+
+.font-gray {
+    color: rgb(177, 174, 174);
+}
+>>>>>>> bb2f73400cf6b221a5f2a62da1ada355567c13cd
