@@ -3,7 +3,6 @@ class FollowsController < ApplicationController
 
 
     def create
-        puts "디버깅 ID : #{params[:followed_id]}"
         Follow.create(followed_id: params[:followed_id], follower_id: current_user.id)
         redirect_to :back
     end
