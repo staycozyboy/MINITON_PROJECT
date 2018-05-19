@@ -3,18 +3,11 @@ class ReviewsController < ApplicationController
     # Review.create(reviewed_id: params[:reviewed_id], reviewer_id: params[:reviewer_id], content: params[:content])
     
     @review=Review.new
-    puts "디버깅::#{params[:reviewed_id]}"
     @review.reviewed_id=params[:reviewed_id]
-    puts "디버깅:::#{@review.reviewed_id}"
-    puts "디버깅:::#{params[:reviewer_id]}"
-    @review.reviewer_id=params[:reviewer_id]
-    puts "디버깅:::#{@review.reviewer_id}"
-    puts "디버깅:::#{params[:content]}"
+    @review.reviewer_id=params[:reviewing_id]
     @review.content = params[:content]
-    puts "디버깅:::#{@review.content}"
     @review.save
-    puts "디버깅:::#{@review}"
-    puts "디버깅:::#{Review.all}"
+    
 
     redirect_to :back
   end
