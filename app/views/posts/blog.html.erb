@@ -4,11 +4,13 @@
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-beta/js/materialize.min.js"></script>
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    
 </head>
 
 <body>
 
 <header>
+
         <div class="container d-flex margin-top">
             <img src="<%= @user.avatar.url %>", class="rounded"/>
         <div class="font-profile">
@@ -31,142 +33,181 @@
         </h3>
         <h5><%= @posts.count %> <strong>POSTS</strong>
         <%=@user.followers.length%> <strong>FOLLOWERS</strong>   <%=@user.followings.length%> <strong>FOLLOWING</strong> 
-</h5>
+        </h5>
         </div>
 
         </div>
+</header>
 
-
-<div class="container">
-  
-        <div class="col s12 m8">
-            <% @posts.each do |post| %>
-                <div class="card">
-    <div class="card-content">
-        <% if post.user.avatar%>
-            <img class="circle" src="<%= post.user.avatar.thumb.url%>">
-        <%end%>
-        <span class="card-title"><%= post.user.user_name %></span>
-        <span><%= post.created_at %></span>
-        <div class="card-image">
-            <% if post.image.url %>
-            <img src="<%= post.image.url %>" />
-            <% end %>
-        </div>
-        
-        <p><%= post.content %></p>
-    </div>
-
-    <div class="card-action">
-        <div class="chal nav-items">
-        <%= "GOT #{post.likes.count} DDUCK!"%>
-        </div>
-        <%if current_user.is_like?(post)%>
-          <%= link_to image_tag("logo3.png", :width => 120, :height => 60), post_like_path(post), method: "post"%>
-        <%else%>
-          <%= link_to image_tag("logo.png", :width => 120, :height => 60), post_like_path(post), method: "post"%>
-          
-        <%end%>         
-    </div>
-</div>
-            <% end %>
-        </div>
-
-
+<br>
 <%# 밑 부분 카드 정렬 %>
+
 <div class="row">  
-    <div class="col s8">
-        <div class="col s6 ssibal">
+    <div class="col s7">
+        <div class="col s6 hi">
             <div class="card">
                 <div class="card-image waves-effect waves-block waves-light">
-                <img class="activator" src="/assets/makeup2.png">
+                <img class="card-image" src="<%= @posts[0].image.url%>">
                 </div>
-                <div class="card-content">
-                <span class="card-title activator grey-text text-darken-4">Card Title<i class="material-icons right">more_vert</i></span>
-                <p><a href="#">This is a link</a></p>
+                <div class="card-content hee">
+                <span class="card-title activator grey-text text-darken-4"><%= @posts[0].title %><i class="material-icons right">menu</i></span>
                 </div>
                 <div class="card-reveal">
-                <span class="card-title grey-text text-darken-4">Card Title<i class="material-icons right">close</i></span>
-                <p>Here is some more information about this product that is only revealed once clicked on.</p>
+                <span class="card-title grey-text text-darken-4"><%= @posts[0].title %><i class="material-icons right">close</i></span>
+                <div class="makeupcontent">
+                   <p><%= @posts[0].content%></p>
+                </div>
+                <div class="card-action">
+                <div class="chal nav-items">
+                 <%= "GOT #{@posts[0].likes.count} DDUCK!"%>
+                </div>
+                <%if current_user.is_like?(@posts[0])%>
+                <%= link_to image_tag("logo3.png", :width => 120, :height => 60), post_like_path(@posts[0]), method: "post"%>
+                <%else%>
+                <%= link_to image_tag("logo.png", :width => 120, :height => 60), post_like_path(@posts[0]), method: "post"%>
+                <%end%>         
+                </div>
+                </div>
+            </div>
+<br>
+             <div class="card">
+                <div class="card-image waves-effect waves-block waves-light">
+                <img class="card-image" src="<%= @posts[1].image.url%>">
+                </div>
+                <div class="card-content hee">
+                <span class="card-title activator grey-text text-darken-4"><%= @posts[1].title %><i class="material-icons right">menu</i></span>
+                </div>
+                <div class="card-reveal">
+                <span class="card-title grey-text text-darken-4"><%= @posts[1].title %><i class="material-icons right">close</i></span>
+                <div class="makeupcontent">
+                   <p><%= @posts[1].content%></p>
+                </div>
+                <div class="card-action">
+                <div class="chal nav-items">
+                 <%= "GOT #{@posts[1].likes.count} DDUCK!"%>
+                </div>
+                <%if current_user.is_like?(@posts[1])%>
+                <%= link_to image_tag("logo3.png", :width => 120, :height => 60), post_like_path(@posts[1]), method: "post"%>
+                <%else%>
+                <%= link_to image_tag("logo.png", :width => 120, :height => 60), post_like_path(@posts[1]), method: "post"%>
+                <%end%>         
+                </div>
                 </div>
             </div>
 
+<br>
             <div class="card">
                 <div class="card-image waves-effect waves-block waves-light">
-                <img class="activator" src="/assets/makeup2.png">
+                <img class="card-image" src="<%= @posts[2].image.url%>">
                 </div>
-                <div class="card-content">
-                <span class="card-title activator grey-text text-darken-4">Card Title<i class="material-icons right">more_vert</i></span>
-                <p><a href="#">This is a link</a></p>
-                </div>
-                <div class="card-reveal">
-                <span class="card-title grey-text text-darken-4">Card Title<i class="material-icons right">close</i></span>
-                <p>Here is some more information about this product that is only revealed once clicked on.</p>
-                </div>
-            </div>
-
-              <div class="card">
-                <div class="card-image waves-effect waves-block waves-light">
-                <img class="activator" src="/assets/makeup2.png">
-                </div>
-                <div class="card-content">
-                <span class="card-title activator grey-text text-darken-4">Card Title<i class="material-icons right">more_vert</i></span>
-                <p><a href="#">This is a link</a></p>
+                <div class="card-content hee">
+                <span class="card-title activator grey-text text-darken-4"><%= @posts[2].title %><i class="material-icons right">menu</i></span>
                 </div>
                 <div class="card-reveal">
-                <span class="card-title grey-text text-darken-4">Card Title<i class="material-icons right">close</i></span>
-                <p>Here is some more information about this product that is only revealed once clicked on.</p>
+                <span class="card-title grey-text text-darken-4"><%= @posts[2].title %><i class="material-icons right">close</i></span>
+                <div class="makeupcontent">
+                   <p><%= @posts[2].content%></p>
+                </div>
+                <div class="card-action">
+                <div class="chal nav-items">
+                 <%= "GOT #{@posts[2].likes.count} DDUCK!"%>
+                </div>
+                <%if current_user.is_like?(@posts[2])%>
+                <%= link_to image_tag("logo3.png", :width => 120, :height => 60), post_like_path(@posts[2]), method: "post"%>
+                <%else%>
+                <%= link_to image_tag("logo.png", :width => 120, :height => 60), post_like_path(@posts[2]), method: "post"%>
+                <%end%>         
+                </div>
                 </div>
             </div>
 
         </div>
-        <div class="col s6 ssibal">
+        <div class="col s6 hi">
             <div class="card">
                 <div class="card-image waves-effect waves-block waves-light">
-                <img class="activator" src="/assets/makeup2.png">
+                <img class="card-image" src="<%= @posts[3].image.url%>">
                 </div>
-                <div class="card-content">
-                <span class="card-title activator grey-text text-darken-4">Card Title<i class="material-icons right">more_vert</i></span>
-                <p><a href="#">This is a link</a></p>
+                <div class="card-content hee">
+                <span class="card-title activator grey-text text-darken-4"><%= @posts[3].title %><i class="material-icons right">menu</i></span>
                 </div>
                 <div class="card-reveal">
-                <span class="card-title grey-text text-darken-4">Card Title<i class="material-icons right">close</i></span>
-                <p>Here is some more information about this product that is only revealed once clicked on.</p>
+                <span class="card-title grey-text text-darken-4"><%= @posts[3].title %><i class="material-icons right">close</i></span>
+                <div class="makeupcontent">
+                   <p><%= @posts[3].content%></p>
+                </div>
+                <div class="card-action">
+                <div class="chal nav-items">
+                 <%= "GOT #{@posts[3].likes.count} DDUCK!"%>
+                </div>
+                <%if current_user.is_like?(@posts[3])%>
+                <%= link_to image_tag("logo3.png", :width => 120, :height => 60), post_like_path(@posts[3]), method: "post"%>
+                <%else%>
+                <%= link_to image_tag("logo.png", :width => 120, :height => 60), post_like_path(@posts[3]), method: "post"%>
+                <%end%>         
+                </div>
                 </div>
             </div>
-            
-            <div class="card">
+<br>
+             <div class="card">
                 <div class="card-image waves-effect waves-block waves-light">
-                <img class="activator" src="/assets/makeup2.png">
+                <img class="card-image" src="<%= @posts[4].image.url%>">
                 </div>
-                <div class="card-content">
-                <span class="card-title activator grey-text text-darken-4">Card Title<i class="material-icons right">more_vert</i></span>
-                <p><a href="#">This is a link</a></p>
+                <div class="card-content hee">
+                <span class="card-title activator grey-text text-darken-4"><%= @posts[4].title %><i class="material-icons right">menu</i></span>
                 </div>
                 <div class="card-reveal">
-                <span class="card-title grey-text text-darken-4">Card Title<i class="material-icons right">close</i></span>
-                <p>Here is some more information about this product that is only revealed once clicked on.</p>
+                <span class="card-title grey-text text-darken-4"><%= @posts[4].title %><i class="material-icons right">close</i></span>
+                <div class="makeupcontent">
+                   <p><%= @posts[4].content%></p>
+                </div>
+                <div class="card-action">
+                <div class="chal nav-items">
+                 <%= "GOT #{@posts[4].likes.count} DDUCK!"%>
+                </div>
+                <%if current_user.is_like?(@posts[4])%>
+                <%= link_to image_tag("logo3.png", :width => 120, :height => 60), post_like_path(@posts[4]), method: "post"%>
+                <%else%>
+                <%= link_to image_tag("logo.png", :width => 120, :height => 60), post_like_path(@posts[4]), method: "post"%>
+                <%end%>         
+                </div>
                 </div>
             </div>
 
-              <div class="card">
+<br>
+            <div class="card">
                 <div class="card-image waves-effect waves-block waves-light">
-                <img class="activator" src="/assets/makeup2.png">
+                <img class="card-image" src="<%= @posts[5].image.url%>">
                 </div>
-                <div class="card-content">
-                <span class="card-title activator grey-text text-darken-4">Card Title<i class="material-icons right">more_vert</i></span>
-                <p><a href="#">This is a link</a></p>
+                <div class="card-content hee">
+                <span class="card-title activator grey-text text-darken-4"><%= @posts[5].title %><i class="material-icons right">menu</i></span>
                 </div>
                 <div class="card-reveal">
-                <span class="card-title grey-text text-darken-4">Card Title<i class="material-icons right">close</i></span>
-                <p>Here is some more information about this product that is only revealed once clicked on.</p>
+                <span class="card-title grey-text text-darken-4"><%= @posts[5].title %><i class="material-icons right">close</i></span>
+                <div class="makeupcontent">
+                   <p><%= @posts[5].content%></p>
+                </div>
+                <div class="card-action">
+                <div class="chal nav-items">
+                 <%= "GOT #{@posts[5].likes.count} DDUCK!"%>
+                </div>
+                <%if current_user.is_like?(@posts[5])%>
+                <%= link_to image_tag("logo3.png", :width => 120, :height => 60), post_like_path(@posts[5]), method: "post"%>
+                <%else%>
+                <%= link_to image_tag("logo.png", :width => 120, :height => 60), post_like_path(@posts[5]), method: "post"%>
+                <%end%>         
+                </div>
                 </div>
             </div>
+
             
         </div>
     </div>
+
+
+
 
 <%# 밑 부분 지도 달력 및 등등 %>
+<br> <br>
     <div class="col s4">
         <div class="map">
             <iframe width="500" height="400" frameborder="0" style="border:0"
@@ -180,142 +221,26 @@
         </div><br><br>
 
         <div class="review">
-            <div class="width">
             <%= form_tag reviews_path do%>
             <input type="hidden" name="reviewed_id" value="<%= @user.id %>" />
             <input type="hidden" name="reviewing_id" value="<%= current_user.id %>" />
-            <input class="height" type="text-area" name="content" >
-            <button class="btn waves-effect waves-light loginbutton" type="submit" name="action">Submit
-            <i class="material-icons right">send</i>
-            </button>
+            <input type="text-area" name="content" >
+            <input type="submit" name="action" value="comment">
             <%end%>
-            </div>
-
-
 
          <% @reviews.each do |review| %>
-            <ul class="collection width"> 
+            <ul class="collection"> 
                 <li class="collection-item avatxar">
                     <img src="images/yuna.jpg" alt="" class="circle">
                     <span class="title"><%= User.find(review.reviewer_id).user_name%></span>
                     <p>
                         <%= review.content %><br>
                         <%= link_to "delete", review_path(:id), method: "delete"%>
-                        <a href="#!" class="secondary-content nav-items"><i class="material-icons">grade</i></a>
                     </p>
-                    
+                    <a href="#!" class="secondary-content"><i class="material-icons">grade</i></a>
                 </li>
             </ul>
             <%end%>   
-    </div>
-
-</div>
-
-<%# 밑 부분 카드 정렬 %>
-<div class="row">  
-    <div class="col s8">
-        <div class="col s6 ssibal">
-            <div class="card">
-                <div class="card-image waves-effect waves-block waves-light">
-                <img class="activator" src="/assets/makeup2.png">
-                </div>
-                <div class="card-content">
-                <span class="card-title activator grey-text text-darken-4">Card Title<i class="material-icons right">more_vert</i></span>
-                <p><a href="#">This is a link</a></p>
-                </div>
-                <div class="card-reveal">
-                <span class="card-title grey-text text-darken-4">Card Title<i class="material-icons right">close</i></span>
-                <p>Here is some more information about this product that is only revealed once clicked on.</p>
-                </div>
-            </div>
-
-            <div class="card">
-                <div class="card-image waves-effect waves-block waves-light">
-                <img class="activator" src="/assets/makeup2.png">
-                </div>
-                <div class="card-content">
-                <span class="card-title activator grey-text text-darken-4">Card Title<i class="material-icons right">more_vert</i></span>
-                <p><a href="#">This is a link</a></p>
-                </div>
-                <div class="card-reveal">
-                <span class="card-title grey-text text-darken-4">Card Title<i class="material-icons right">close</i></span>
-                <p>Here is some more information about this product that is only revealed once clicked on.</p>
-                </div>
-            </div>
-
-              <div class="card">
-                <div class="card-image waves-effect waves-block waves-light">
-                <img class="activator" src="/assets/makeup2.png">
-                </div>
-                <div class="card-content">
-                <span class="card-title activator grey-text text-darken-4">Card Title<i class="material-icons right">more_vert</i></span>
-                <p><a href="#">This is a link</a></p>
-                </div>
-                <div class="card-reveal">
-                <span class="card-title grey-text text-darken-4">Card Title<i class="material-icons right">close</i></span>
-                <p>Here is some more information about this product that is only revealed once clicked on.</p>
-                </div>
-            </div>
-
-        </div>
-        <div class="col s6 ssibal">
-            <div class="card">
-                <div class="card-image waves-effect waves-block waves-light">
-                <img class="activator" src="/assets/makeup2.png">
-                </div>
-                <div class="card-content">
-                <span class="card-title activator grey-text text-darken-4">Card Title<i class="material-icons right">more_vert</i></span>
-                <p><a href="#">This is a link</a></p>
-                </div>
-                <div class="card-reveal">
-                <span class="card-title grey-text text-darken-4">Card Title<i class="material-icons right">close</i></span>
-                <p>Here is some more information about this product that is only revealed once clicked on.</p>
-                </div>
-            </div>
-            
-            <div class="card">
-                <div class="card-image waves-effect waves-block waves-light">
-                <img class="activator" src="/assets/makeup2.png">
-                </div>
-                <div class="card-content">
-                <span class="card-title activator grey-text text-darken-4">Card Title<i class="material-icons right">more_vert</i></span>
-                <p><a href="#">This is a link</a></p>
-                </div>
-                <div class="card-reveal">
-                <span class="card-title grey-text text-darken-4">Card Title<i class="material-icons right">close</i></span>
-                <p>Here is some more information about this product that is only revealed once clicked on.</p>
-                </div>
-            </div>
-
-              <div class="card">
-                <div class="card-image waves-effect waves-block waves-light">
-                <img class="activator" src="/assets/makeup2.png">
-                </div>
-                <div class="card-content">
-                <span class="card-title activator grey-text text-darken-4">Card Title<i class="material-icons right">more_vert</i></span>
-                <p><a href="#">This is a link</a></p>
-                </div>
-                <div class="card-reveal">
-                <span class="card-title grey-text text-darken-4">Card Title<i class="material-icons right">close</i></span>
-                <p>Here is some more information about this product that is only revealed once clicked on.</p>
-                </div>
-            </div>
-            
-        </div>
-    </div>
-
-<%# 밑 부분 지도 달력 및 등등 %>
-    <div class="col s4">
-        <div class="map">
-      <iframe width="500" height="400" frameborder="0" style="border:0"
-src="https://www.google.com/maps/embed/v1/search?q=대한민국+서울특별시+강남구+역삼1동+역삼로+마루180&key=AIzaSyChlos-0eR0EdApkOguZ6w4F4IxWKZ0M5c" allowfullscreen></iframe>
-
-        </div>
-        <div class="calendar">
-            <iframe src="https://calendar.google.com/calendar/embed?showTitle=0&amp;
-            showNav=0&amp;showDate=0&amp;showPrint=0&amp;showTabs=0&amp;showCalendars=0&amp;showTz=0&amp;height=200&amp;wkst=2&amp;hl=ko&amp;bgcolor=%23ffcccc&amp;ctz=Asia%2FSeoul" style="border:solid 1px #777"
-            width="500" height="400" frameborder="0" scrolling="no"></iframe>
-        </div>
     </div>
 
 </div>
