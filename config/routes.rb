@@ -12,7 +12,7 @@ Rails.application.routes.draw do
   
   devise_for :users
   
-  root 'home#index'
+  root 'index#index'
 
 
   get 'home/index' => 'home#index'

@@ -19,17 +19,23 @@
             </div>
             <div>
             <p>PONY</p>
-            <button type="button" class="btn btn-sm loginbutton ">follow</button>
-            <button type="button" class="btn btn-sm loginbutton ">message</button>
+            <p>이메일 : <%= @user.email %></p>
+            <p>올린 글 개수 : <%= @posts.count %></p>
+            <p>팔로워 : <%=@user.followers.length%></p>
+            <p>팔로잉 : <%=@user.followings.length%></p>
+                    <% if user_signed_in? && current_user != post.user %>
+            <% if current_user.followings.include?(post.user) %>
+                <%= form_tag follow_path(post.user.id), method: :delete, class: "right" do %>
+            <button class="btn">언팔</button>
+            <% end %>
+            <% else %>
+                <%= form_tag follows_path, class: "right" do %>
+                <input type="hidden" name="followed_id" value="<%= post.user.id %>" />
+                <button class="btn">팔로우</button>
+                <% end %>
+            <% end %>
+        <%else%>
+        <% end %>
 
-          <div class="d-flex">
-          <p class="follow">게시물 &nbsp;</p><p class="follow name">530</p>
-          <div class="space"></div>
-          <p class="follow">팔로워 &nbsp;</p><p class="follow name">40.7k</p>
-          <div class="space"></div>
-          <p class="follow">팔로우 &nbsp;</p><p class="follow name">1</p>
-              </div>
-              </div>
-        </div>
 
       </header>      
