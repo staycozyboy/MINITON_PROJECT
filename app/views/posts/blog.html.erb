@@ -8,50 +8,37 @@
 
 <body>
 
-                    <header>
-
-        <div class="container photo-flex">
-            <div class="profile-photo-box">
-                <img src="/assets/profile.jpg", class="profile-photo"> 
-            </div>
-            <div>
-            <p>PONY</p>
-            <button type="button" class="btn btn-sm loginbutton ">follow</button>
-            <button type="button" class="btn btn-sm loginbutton ">message</button>
-
-          <div class="d-flex">
-          <p class="follow">게시물 &nbsp;</p><p class="follow name">530</p>
-          <div class="space"></div>
-          <p class="follow">팔로워 &nbsp;</p><p class="follow name">40.7k</p>
-          <div class="space"></div>
-          <p class="follow">팔로우 &nbsp;</p><p class="follow name">1</p>
-              </div>
-              </div>
+<header>
+        <div class="container d-flex margin-top">
+            <img src="<%= @user.avatar.url %>", class="rounded"/>
+        <div class="font-profile">
+        <h3><%= @user.user_name %>         
+        <% if user_signed_in? && current_user != @user %>
+                <% if current_user.followings.include?(@user) %>
+                    <%= form_tag follow_path(@user.id), method: :delete, class: "right" do %>
+                <button class="btn loginbutton">UNFOLLOW</button>
+                <button class="btn loginbutton">MESSAGE</button>
+                <% end %>
+                <% else %>
+                    <%= form_tag follows_path, class: "right" do %>
+                    <input type="hidden" name="followed_id" value="<%= @user.id %>" />
+                    <button class="btn loginbutton">FOLLOW</button>
+                    <button class="btn loginbutton">MESSAGE</button>
+                    <% end %>
+                <% end %>
+            <%else%>
+            <% end %>
+        </h3>
+        <h5><%= @posts.count %> <strong>POSTS</strong>
+        <%=@user.followers.length%> <strong>FOLLOWERS</strong>   <%=@user.followings.length%> <strong>FOLLOWING</strong> 
+</h5>
         </div>
 
-      </header>    
+        </div>
 
-      
+
 <div class="container">
-    <div class="row">
-        <div class="col s12 m4">
-            <div class="card">
-                <div class="card-image">
-                    <img src="<%= @user.avatar.url %>" />
-                </div>
-                <div class="card-content">
-                    <div class="card-title"><%= @user.user_name %></div>
-                    <p>이메일 : <%= @user.email %></p>
-                    <p>올린 글 개수 : <%= @posts.count %></p>
-                    <p>팔로워 : <%=@user.followers.length%></p>
-                    <p>팔로잉 : <%=@user.followings.length%></p>
-                    
   
-                    
-
-                </div>
-            </div>
-        </div>
         <div class="col s12 m8">
             <% @posts.each do |post| %>
                 <div class="card">
@@ -71,50 +58,158 @@
     </div>
 
     <div class="card-action">
-        <%= "#{post.likes.count} 명이 좋아합니다."%>
+        <div class="chal nav-items">
+        <%= "GOT #{post.likes.count} DDUCK!"%>
+        </div>
         <%if current_user.is_like?(post)%>
-          <%= link_to "좋아요 취소", post_like_path(post), method: "post"%>
+          <%= link_to image_tag("logo3.png", :width => 120, :height => 60), post_like_path(post), method: "post"%>
         <%else%>
-          <%= link_to "좋아요", post_like_path(post), method: "post"%>
-        <%end%> 
-
-        <% if user_signed_in? && current_user != post.user %>
-            <% if current_user.followings.include?(post.user) %>
-                <%= form_tag follow_path(post.user.id), method: :delete, class: "right" do %>
-            <button class="btn">언팔</button>
-            <% end %>
-            <% else %>
-                <%= form_tag follows_path, class: "right" do %>
-                <input type="hidden" name="followed_id" value="<%= post.user.id %>" />
-                <button class="btn">팔로우</button>
-                <% end %>
-            <% end %>
-        <%else%>
-        <% end %>
-        
-            
-        
+          <%= link_to image_tag("logo.png", :width => 120, :height => 60), post_like_path(post), method: "post"%>
+          
+        <%end%>         
     </div>
 </div>
             <% end %>
         </div>
+
+
+<%# 밑 부분 카드 정렬 %>
+<div class="row">  
+    <div class="col s8">
+        <div class="col s6 ssibal">
+            <div class="card">
+                <div class="card-image waves-effect waves-block waves-light">
+                <img class="activator" src="/assets/makeup2.png">
+                </div>
+                <div class="card-content">
+                <span class="card-title activator grey-text text-darken-4">Card Title<i class="material-icons right">more_vert</i></span>
+                <p><a href="#">This is a link</a></p>
+                </div>
+                <div class="card-reveal">
+                <span class="card-title grey-text text-darken-4">Card Title<i class="material-icons right">close</i></span>
+                <p>Here is some more information about this product that is only revealed once clicked on.</p>
+                </div>
+            </div>
+
+            <div class="card">
+                <div class="card-image waves-effect waves-block waves-light">
+                <img class="activator" src="/assets/makeup2.png">
+                </div>
+                <div class="card-content">
+                <span class="card-title activator grey-text text-darken-4">Card Title<i class="material-icons right">more_vert</i></span>
+                <p><a href="#">This is a link</a></p>
+                </div>
+                <div class="card-reveal">
+                <span class="card-title grey-text text-darken-4">Card Title<i class="material-icons right">close</i></span>
+                <p>Here is some more information about this product that is only revealed once clicked on.</p>
+                </div>
+            </div>
+
+              <div class="card">
+                <div class="card-image waves-effect waves-block waves-light">
+                <img class="activator" src="/assets/makeup2.png">
+                </div>
+                <div class="card-content">
+                <span class="card-title activator grey-text text-darken-4">Card Title<i class="material-icons right">more_vert</i></span>
+                <p><a href="#">This is a link</a></p>
+                </div>
+                <div class="card-reveal">
+                <span class="card-title grey-text text-darken-4">Card Title<i class="material-icons right">close</i></span>
+                <p>Here is some more information about this product that is only revealed once clicked on.</p>
+                </div>
+            </div>
+
+        </div>
+        <div class="col s6 ssibal">
+            <div class="card">
+                <div class="card-image waves-effect waves-block waves-light">
+                <img class="activator" src="/assets/makeup2.png">
+                </div>
+                <div class="card-content">
+                <span class="card-title activator grey-text text-darken-4">Card Title<i class="material-icons right">more_vert</i></span>
+                <p><a href="#">This is a link</a></p>
+                </div>
+                <div class="card-reveal">
+                <span class="card-title grey-text text-darken-4">Card Title<i class="material-icons right">close</i></span>
+                <p>Here is some more information about this product that is only revealed once clicked on.</p>
+                </div>
+            </div>
+            
+            <div class="card">
+                <div class="card-image waves-effect waves-block waves-light">
+                <img class="activator" src="/assets/makeup2.png">
+                </div>
+                <div class="card-content">
+                <span class="card-title activator grey-text text-darken-4">Card Title<i class="material-icons right">more_vert</i></span>
+                <p><a href="#">This is a link</a></p>
+                </div>
+                <div class="card-reveal">
+                <span class="card-title grey-text text-darken-4">Card Title<i class="material-icons right">close</i></span>
+                <p>Here is some more information about this product that is only revealed once clicked on.</p>
+                </div>
+            </div>
+
+              <div class="card">
+                <div class="card-image waves-effect waves-block waves-light">
+                <img class="activator" src="/assets/makeup2.png">
+                </div>
+                <div class="card-content">
+                <span class="card-title activator grey-text text-darken-4">Card Title<i class="material-icons right">more_vert</i></span>
+                <p><a href="#">This is a link</a></p>
+                </div>
+                <div class="card-reveal">
+                <span class="card-title grey-text text-darken-4">Card Title<i class="material-icons right">close</i></span>
+                <p>Here is some more information about this product that is only revealed once clicked on.</p>
+                </div>
+            </div>
+            
+        </div>
     </div>
 
-        
+<%# 밑 부분 지도 달력 및 등등 %>
+    <div class="col s4">
+        <div class="map">
+            <iframe width="500" height="400" frameborder="0" style="border:0"
+            src="https://www.google.com/maps/embed/v1/search?q=대한민국+서울특별시+강남구+역삼1동+역삼로+마루180&key=AIzaSyChlos-0eR0EdApkOguZ6w4F4IxWKZ0M5c" allowfullscreen></iframe>
+
+        </div>
+        <div class="calendar">
+            <iframe src="https://calendar.google.com/calendar/embed?showTitle=0&amp;
+            showNav=0&amp;showDate=0&amp;showPrint=0&amp;showTabs=0&amp;showCalendars=0&amp;showTz=0&amp;height=200&amp;wkst=2&amp;hl=ko&amp;bgcolor=%23ffcccc&amp;ctz=Asia%2FSeoul" style="border:solid 1px #777"
+            width="500" height="400" frameborder="0" scrolling="no"></iframe>
+        </div><br><br>
+
+        <div class="review">
+            <div class="width">
+            <%= form_tag reviews_path do%>
+            <input type="hidden" name="reviewed_id" value="<%= @user.id %>" />
+            <input type="hidden" name="reviewing_id" value="<%= current_user.id %>" />
+            <input class="height" type="text-area" name="content" >
+            <button class="btn waves-effect waves-light loginbutton" type="submit" name="action">Submit
+            <i class="material-icons right">send</i>
+            </button>
+            <%end%>
+            </div>
+
+
+
+         <% @reviews.each do |review| %>
+            <ul class="collection width"> 
+                <li class="collection-item avatxar">
+                    <img src="images/yuna.jpg" alt="" class="circle">
+                    <span class="title"><%= User.find(review.reviewer_id).user_name%></span>
+                    <p>
+                        <%= review.content %><br>
+                        <%= link_to "delete", review_path(:id), method: "delete"%>
+                        <a href="#!" class="secondary-content nav-items"><i class="material-icons">grade</i></a>
+                    </p>
+                    
+                </li>
+            </ul>
+            <%end%>   
+    </div>
+
 </div>
-
-<%= form_tag reviews_path do%>
-    <input type="hidden" name="reviewed_id" value="<%= @user.id %>" />
-    <input type="hidden" name="reviewing_id" value="<%= current_user.id %>" />
-    <input type="text-area" name="content">
-    <input type="submit" name="action" value="작성">
-<%end%>
-
-<% @reviews.each do |review| %>
-    <%= User.find(review.reviewer_id).user_name%><br>
-    <%= review.content %><br>
-    <%= link_to "삭제", review_path(:id), method: 'delete'%><br>
-<%end%>
 
 <%# 밑 부분 카드 정렬 %>
 <div class="row">  
