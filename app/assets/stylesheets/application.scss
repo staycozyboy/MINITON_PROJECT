@@ -1,5 +1,5 @@
-@import "materialize";
 
+@import "materialize";
 .go {
     width: 500px;
 }
@@ -48,47 +48,30 @@
     border-radius: 50%;
 }
 
-.mika{
-    font-size: 32px;
-    line-height: 40px;
-    font-weight: 200;
+
+.vide{
+    height: 50px; 
 }
 
-.btn_follow{
-    width: 100px;
-    height: 30px;
+body {
+    // background-color: rgb(223, 154, 165);
+    // color: rgb(223, 154, 165);
 }
 
-.follow{
-    font-size: 16px;
+.container2{
+    display: flex;
+    justify-content: center;
+}
+.row_1{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 200px;
+    width: 500px;
 }
 
-.space{
-    width: 50px;
-}
-
-.lil-space{
-    width: 10px;
-}
-
-
-.name{
-    font-weight: bold;  
-}
-
-.bemo_post{
-    width: 294px;
-    height: 294px;
-    margin: 10px;
-}
-
-header{
-    height: 170px;
-    margin: 44px;
-}
-
-.btn-board{
-    color: white !important;
+.rr {
+    width: 30px;
 }
 
 .nav-white{
