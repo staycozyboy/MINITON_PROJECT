@@ -26,6 +26,7 @@ class PostsController < ApplicationController
   def blog
     @user = User.find(params[:user_id])
     @posts = @user.posts
+    @reviews = Review.where(reviewed_id: @user.id)
   end
 
   # POST /posts

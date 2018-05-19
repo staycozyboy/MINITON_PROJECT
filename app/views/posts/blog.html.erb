@@ -66,3 +66,16 @@
         </div>
     </div>
 </div>
+
+<%= form_tag reviews_path do%>
+    <input type="hidden" name="reviewed_id" value="<%= @user.id %>" />
+    <input type="hidden" name="reviewing_id" value="<%= current_user.id %>" />
+    <input type="text-area" name="content">
+    <input type="submit" name="action" value="작성">
+<%end%>
+
+<% @reviews.each do |review| %>
+    <%= User.find(review.reviewer_id).user_name%><br>
+    <%= review.content %><br>
+    <%= link_to "삭제", review_path(:id), method: 'delete'%><br>
+<%end%>
