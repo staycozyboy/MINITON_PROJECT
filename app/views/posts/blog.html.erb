@@ -176,19 +176,22 @@
             <iframe width="500" height="400" frameborder="0" style="border:0"
             src="https://www.google.com/maps/embed/v1/search?q=대한민국+서울특별시+강남구+역삼1동+역삼로+마루180&key=AIzaSyChlos-0eR0EdApkOguZ6w4F4IxWKZ0M5c" allowfullscreen></iframe>
 
-        </div>
+        </div> <br>
         <div class="calendar">
             <iframe src="https://calendar.google.com/calendar/embed?showTitle=0&amp;
             showNav=0&amp;showDate=0&amp;showPrint=0&amp;showTabs=0&amp;showCalendars=0&amp;showTz=0&amp;height=200&amp;wkst=2&amp;hl=ko&amp;bgcolor=%23ffcccc&amp;ctz=Asia%2FSeoul" style="border:solid 1px #777"
             width="500" height="400" frameborder="0" scrolling="no"></iframe>
         </div><br><br>
 
-        <div class="review">
+        <div class="review" >
             <%= form_tag reviews_path do%>
             <input type="hidden" name="reviewed_id" value="<%= @user.id %>" />
             <input type="hidden" name="reviewing_id" value="<%= current_user.id %>" />
-            <input type="text-area" name="content" >
-            <input type="submit" name="action" value="comment">
+
+            <a class="waves-effect">
+            <input type="text-area" name="content" size="50" ></a> 
+            <a class="waves-effect waves-light btn-small"><input type="submit" name="action" value="comment" size="10"></a>
+            
             <%end%>
 
          <% @reviews.each do |review| %>
