@@ -1,5 +1,5 @@
-@import "materialize";
 
+@import "materialize";
 .go {
     width: 500px;
 }
@@ -22,19 +22,6 @@
     -webkit-appearance: none;
 }
 
-.input_row {
-    width: 100%;
-    position: relative;
-    height: 50px;
-    margin: 14px 14px 0;
-    padding: 10px 35px 10px 15px;
-    border: solid 1px #dadada;
-    background: #fff;
-}
-
-.input_email{
-    margin: 100px 14px 0;
-}
 
 .bemo_logo{
     width: 152px;
@@ -61,49 +48,147 @@
     border-radius: 50%;
 }
 
-.mika{
-    font-size: 32px;
-    line-height: 40px;
-    font-weight: 200;
-}
 
-.btn_follow{
-    width: 100px;
-    height: 30px;
-}
-
-.follow{
-    font-size: 16px;
-}
-
-.space{
-    width: 50px;
-}
-
-.lil-space{
-    width: 10px;
+.vide{
+    height: 50px; 
 }
 
 
-.name{
-    font-weight: bold;  
+.container2{
+    display: flex;
+    justify-content: center;
+}
+.row_1{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 200px;
+    width: 500px;
 }
 
-.bemo_post{
-    width: 294px;
-    height: 294px;
-    margin: 10px;
-}
-
-header{
-    height: 170px;
-    margin: 44px;
-}
-
-.btn-board{
-    color: white !important;
+.rr {
+    width: 30px;
 }
 
 .nav-white{
     background-color: white !important;
+}
+
+
+.gg {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    margin-top: 10%;
+}
+a {
+    text-align: center;
+}
+
+.login {
+    display: flex;
+    justify-content: space-between;
+    flex-direction: column;
+}
+
+.register {
+    margin-top: 50px;
+    display: flex;
+    justify-content: center;
+}
+
+.actions {
+    display: flex;
+    justify-content: center;
+}
+
+.field {
+    margin-top: 50px;
+    display: flex;
+    justify-content: center;
+}
+
+.mainimage {
+    width: 250px;
+    height: 320px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.card-image {
+    width: 236px;
+    height: 300px;
+    border-radius: 30px;
+}
+
+.card-reveal {
+    width: 250px !important;
+    height: 300px !important;
+}
+
+.card {
+    margin: 10%;
+}
+
+
+.d-flex {
+    display: flex;
+    justify-content: space-around;
+}
+
+.LogoAbout {
+    width: 136px;
+    height: 64px;
+}
+
+.nav-items {
+    color: rgb(223, 154, 165);
+}
+
+.profile-photo-box {
+    width: 292px;
+    height: 152px;
+}
+
+.profile-photo {
+    width: 152px;
+    height: 152px;
+    border-radius: 50%;
+}
+
+.font-gray {
+    color: rgb(177, 174, 174);
+}
+
+.photo-flex {
+    display: flex;
+}
+
+.loginbutton {
+    color: white;
+    background-color: rgb(223, 154, 165);
+}
+
+.feed {
+    display: flex;
+    justify-content: space-around;
+    margin: 30px;
+}
+
+.card-title {
+    font-family: 'Nanum Gothic', sans-serif;
+    font-style: rgba(75, 75, 60, 0.39);
+    font-size: 30px;
+}
+
+.to {
+    margin-top: 80%;
+}
+
+.makeupcontent {
+    height: 10%;
+}
+
+.font-gray {
+    color: rgb(177, 174, 174);
 }

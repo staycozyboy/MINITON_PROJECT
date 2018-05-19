@@ -1,3 +1,37 @@
+<head>
+
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-beta/js/materialize.min.js"></script>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+</head>
+
+<body>
+
+                    <header>
+
+        <div class="container photo-flex">
+            <div class="profile-photo-box">
+                <img src="/assets/profile.jpg", class="profile-photo"> 
+            </div>
+            <div>
+            <p>PONY</p>
+            <button type="button" class="btn btn-sm loginbutton ">follow</button>
+            <button type="button" class="btn btn-sm loginbutton ">message</button>
+
+          <div class="d-flex">
+          <p class="follow">게시물 &nbsp;</p><p class="follow name">530</p>
+          <div class="space"></div>
+          <p class="follow">팔로워 &nbsp;</p><p class="follow name">40.7k</p>
+          <div class="space"></div>
+          <p class="follow">팔로우 &nbsp;</p><p class="follow name">1</p>
+              </div>
+              </div>
+        </div>
+
+      </header>    
+
+      
 <div class="container">
     <div class="row">
         <div class="col s12 m4">
@@ -11,8 +45,22 @@
                     <p>올린 글 개수 : <%= @posts.count %></p>
                     <p>팔로워 : <%=@user.followers.length%></p>
                     <p>팔로잉 : <%=@user.followings.length%></p>
+                   
+                    <% if user_signed_in? && current_user != @user %>
+            <% if current_user.followings.include?(@user) %>
+                <%= form_tag follow_path(@user.id), method: :delete, class: "right" do %>
+            <button class="btn">언팔</button>
+            <% end %>
+            <% else %>
+                <%= form_tag follows_path, class: "right" do %>
+                <input type="hidden" name="followed_id" value="<%= @user.id %>" />
+                <button class="btn">팔로우</button>
+                <% end %>
+            <% end %>
+        <%else%>
+        <% end %>
                     
-
+  
                     
 
                 </div>
@@ -33,7 +81,7 @@
             <% end %>
         </div>
         
-        <p><%= post.content %></p>
+        <p><%= render_with_hashtags(post.content) %></p>
     </div>
 
     <div class="card-action">
@@ -59,12 +107,14 @@
         <% end %>
         
             
-          
+        
     </div>
 </div>
             <% end %>
         </div>
     </div>
+
+        
 </div>
 
 <%= form_tag reviews_path do%>
@@ -77,5 +127,5 @@
 <% @reviews.each do |review| %>
     <%= User.find(review.reviewer_id).user_name%><br>
     <%= review.content %><br>
-    <%= link_to "삭제", review_path(:id), method: 'delete'%><br>
+    <%= link_to "삭제", review_path(id: review.id), method: 'delete'%><br>
 <%end%>
