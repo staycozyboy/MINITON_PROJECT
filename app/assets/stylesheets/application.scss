@@ -1,3 +1,5 @@
+@import "materialize";
+
 .go {
     width: 500px;
 }
@@ -20,19 +22,6 @@
     -webkit-appearance: none;
 }
 
-.input_row {
-    width: 100%;
-    position: relative;
-    height: 50px;
-    margin: 14px 14px 0;
-    padding: 10px 35px 10px 15px;
-    border: solid 1px #dadada;
-    background: #fff;
-}
-
-.input_email{
-    margin: 100px 14px 0;
-}
 
 .bemo_logo{
     width: 152px;
@@ -104,4 +93,79 @@ header{
 
 .nav-white{
     background-color: white !important;
+}
+
+
+.gg {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    margin-top: 20%;
+}
+a {
+    text-align: center;
+}
+
+.login {
+    display: flex;
+    justify-content: space-between;
+    flex-direction: column;
+}
+
+.register {
+    margin-top: 50px;
+    display: flex;
+    justify-content: center;
+}
+
+.actions {
+    display: flex;
+    justify-content: center;
+}
+
+.field {
+    margin-top: 50px;
+    display: flex;
+    justify-content: center;
+}
+
+.mainimage {
+    width: 250px;
+    height: 320px;
+    display: flex;
+    justify-content: space-around;
+}
+
+.card-image {
+    width: 236px;
+    height: 300px;
+    border-radius: 30px;
+}
+
+.card-reveal {
+    width: 250px;
+    height: 320px;
+}
+
+.card {
+    margin: 10%;
+}
+
+.feed {
+    display: flex;
+    margin: 30px;
+}
+
+.d-flex {
+    display: flex;
+    justify-content: space-around;
+}
+
+.LogoAbout {
+    width: 136px;
+    height: 64px;
+}
+
+.nav-items {
+    color: rgb(223, 154, 165);
 }
