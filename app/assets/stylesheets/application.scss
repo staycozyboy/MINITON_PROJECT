@@ -50,7 +50,6 @@
 
 .mika{
     font-size: 32px;
-    line-height: 40px;
     font-weight: 200;
 }
 
@@ -168,4 +167,28 @@ a {
 
 .nav-items {
     color: rgb(223, 154, 165);
+}
+
+.profile-photo-box {
+    width: 292px;
+    height: 152px;
+}
+
+.profile-photo {
+    width: 152px;
+    height: 152px;
+    border-radius: 50%;
+}
+
+.font-gray {
+    color: rgb(177, 174, 174);
+}
+
+.photo-flex {
+    display: flex;
+}
+
+.loginbutton {
+    color: white;
+    background-color: rgb(223, 154, 165);
 }

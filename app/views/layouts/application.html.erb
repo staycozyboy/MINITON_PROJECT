@@ -7,28 +7,39 @@
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-beta/js/materialize.min.js"></script>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
   </head>
 
   <body>
-<nav class="white">
+    <nav class="white">
       <div class="nav-wrapper d-flex">
-        <a href="#!" class="brand-logo"><%= link_to image_tag("logo.png", class:"LogoAbout")%></a>
+        <%= link_to image_tag("logo.png", class:"LogoAbout"), root_path %>
           <div class="d-flex">
-            
-            <div><i class="material-icons nav-items">search</i>
-            </div>
+            <div><i class="material-icons nav-items">search</i></div>
 
-            <div>
-              <input type="search" placeholder="" class="nav-items">
-            </div>
-          
+            <div><input type="search" placeholder="" class="nav-items"></div>
           </div>
-          
-        <ul class="right hide-on-med-and-down">  
-          <li><a href="badges.html"><i class="material-icons nav-items">view_module</i></a></li>
-          <li><a href="collapsible.html"><i class="material-icons nav-items">face</i></a></li>
-          <li><a href="mobile.html"><i class="material-icons nav-items">more_vert</i></a></li>
-        </ul>
+      <ul>
+      <li>
+        <% if user_signed_in? %>
+          <li class="d-flex">
+          <i class="material-icons left nav-items">face</i><%= link_to "#{current_user.user_name}", posts_blog_path(user_id: current_user.id), :class => "font-gray"%>
+          <li><a href="collapsible.html"><i class="material-icons nav-items">star</i></a></li>
+          <li><a href="mobile.html"><i class="material-icons nav-items">email</i></a></li>
+          <li><%= link_to('로그아웃', destroy_user_session_path, method: :delete, :class => "font-gray") %>        
+      </li>
+        <% else %>
+      <li>
+        <%= link_to('로그인', new_user_session_path, :class => "font-gray")  %>  
+      </li>
+      <li>
+        <%= link_to('회원가입', new_user_registration_path, :class => "font-gray")  %>
+      </li>
+      </ul>
+    <% end %>
+        
+   
+
       </div>
     </nav>
         <%= yield %>
