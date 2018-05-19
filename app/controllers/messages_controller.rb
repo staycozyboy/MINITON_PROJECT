@@ -10,6 +10,8 @@ class MessagesController < ApplicationController
     @message.sender_id=params[:sender_id]
     @message.content = params[:content]
     @message.save
+
+    redirect_to '/messagebox'
   end
 
   def destroy

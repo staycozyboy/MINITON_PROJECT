@@ -34,6 +34,11 @@ class PostsController < ApplicationController
     @reviews = Review.where(reviewed_id: @user.id)
   end
 
+  def messagebox
+    @messages_send = Message.where(sender_id: current_user.id)
+    @messages_sended = Message.where(sended_id: current_user.id)
+  end
+
   # POST /posts
   # POST /posts.json
   def create
