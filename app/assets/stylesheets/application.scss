@@ -162,6 +162,7 @@ a {
 
 .photo-flex {
     display: flex;
+
 }
 
 .loginbutton {
@@ -191,4 +192,18 @@ a {
 
 .font-gray {
     color: rgb(177, 174, 174);
+}
+
+.rounded {
+    height: 250px;
+    width: 250px;
+    border-radius: 50%;
+}
+
+.margin-top {
+    margin-top: 100px;
+}
+
+.font-profile {
+    color: rgb(90, 87, 87);
 }
