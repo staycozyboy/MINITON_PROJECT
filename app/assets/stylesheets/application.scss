@@ -48,123 +48,9 @@
     border-radius: 50%;
 }
 
-.responsive-img{
-    display: center;
-    justify-content: start;
-    align-content: center;
-
-
-
-// .go {
-//     width: 500px;
-// }
-
-// .btn_global {
-//     font-size: 20px;
-//     font-weight: 700;
-//     line-height: 61px;
-//     display: block;
-//     width: 100%;
-//     height: 61px;
-//     margin: 30px 0 13px;
-//     padding-top: 2px;
-//     cursor: pointer;
-//     text-align: center;
-//     color: #fff;
-//     border: none;
-//     border-radius: 0;
-//     background-color: #1fbc02;
-//     -webkit-appearance: none;
-// }
-
-// .input_row {
-//     width: 100%;
-//     position: relative;
-//     height: 50px;
-//     margin: 14px 14px 0;
-//     padding: 10px 35px 10px 15px;
-//     border: solid 1px #dadada;
-//     background: #fff;
-// }
-
-// .input_email{
-//     margin: 100px 14px 0;
-// }
-
-// .bemo_logo{
-//     width: 152px;
-//     height: 152px;
-// }
-
-// .logo1{
-//     width: 170px;
-//     height: 55px;
-// }
-
-// .search_logo{
-//     width: 215px;
-//     height: 33px;
-// }
-
-// .btn_login{
-//     background-color: white !important;
-//     color: blue !important;
-//     font-weight: bold !important;
-// }
-
-// .round_pic{
-//     border-radius: 50%;
-// }
-
-// .mika{
-//     font-size: 32px;
-//     line-height: 40px;
-//     font-weight: 200;
-// }
-
-// .btn_follow{
-//     width: 100px;
-//     height: 30px;
-// }
-
-// .follow{
-//     font-size: 16px;
-// }
-
-// .space{
-//     width: 50px;
-// }
-
-// .lil-space{
-//     width: 10px;
-// }
-
-
-// .name{
-//     font-weight: bold;  
-// }
-
-// .bemo_post{
-//     width: 294px;
-//     height: 294px;
-//     margin: 10px;
-// }
-
-// header{
-//     height: 170px;
-//     margin: 44px;
-// }
-
-// .btn-board{
-//     color: white !important;
-// }
-
-// .nav-white{
-//     background-color: white !important;
-// }
 
 .vide{
-    height: 70px; 
+    height: 50px; 
 }
 
 body {
@@ -173,12 +59,29 @@ body {
 }
 
 .responsive-img{
-    display: center;
-    justify-content: start;
-    align-content: center;
+    // max-width: 85% !important ;
+    // display: flex;
+    // justify-content: center;
+    // align-content: center;
+    // width: auto;
+    // height: 80px;
 }
-<<<<<<< HEAD
-=======
+
+.container2{
+    display: flex;
+    justify-content: center;
+}
+.row_1{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 200px;
+    width: 500px;
+}
+
+.rr {
+    width: 30px;
+}
 
 .nav-white{
     background-color: white !important;
@@ -258,4 +161,9 @@ a {
 .nav-items {
     color: rgb(223, 154, 165);
 }
->>>>>>> 3d46e18870658b74b74d422297e8b8a8c3bc0f68
+
+// .row{
+//     display: flex;
+//     justify-content: center;
+
+// }
