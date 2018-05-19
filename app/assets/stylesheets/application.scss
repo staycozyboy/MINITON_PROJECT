@@ -100,7 +100,7 @@ header{
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    margin-top: 20%;
+    margin-top: 10%;
 }
 a {
     text-align: center;
@@ -133,7 +133,7 @@ a {
     width: 250px;
     height: 320px;
     display: flex;
-    justify-content: space-around;
+    justify-content: space-between;
 }
 
 .card-image {
@@ -143,18 +143,14 @@ a {
 }
 
 .card-reveal {
-    width: 250px;
-    height: 320px;
+    width: 250px !important;
+    height: 300px !important;
 }
 
 .card {
     margin: 10%;
 }
 
-.feed {
-    display: flex;
-    margin: 30px;
-}
 
 .d-flex {
     display: flex;
@@ -168,4 +164,33 @@ a {
 
 .nav-items {
     color: rgb(223, 154, 165);
+}
+
+.loginbutton {
+    color: white;
+    background-color: rgb(223, 154, 165);
+}
+
+.feed {
+    display: flex;
+    justify-content: space-around;
+    margin: 30px;
+}
+
+.card-title {
+    font-family: 'Nanum Gothic', sans-serif;
+    font-style: rgba(75, 75, 60, 0.39);
+    font-size: 30px;
+}
+
+.to {
+    margin-top: 80%;
+}
+
+.makeupcontent {
+    height: 10%;
+}
+
+.font-gray {
+    color: rgb(177, 174, 174);
 }
