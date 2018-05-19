@@ -25,6 +25,21 @@
           <p class="follow">팔로워 &nbsp;</p><p class="follow name">40.7k</p>
           <div class="space"></div>
           <p class="follow">팔로우 &nbsp;</p><p class="follow name">1</p>
+
+          <% if user_signed_in? && current_user != post.user %>
+            <% if current_user.followings.include?(post.user) %>
+                <%= form_tag follow_path(post.user.id), method: :delete, class: "right" do %>
+            <button class="btn">언팔</button>
+            <% end %>
+            <% else %>
+                <%= form_tag follows_path, class: "right" do %>
+                <input type="hidden" name="followed_id" value="<%= post.user.id %>" />
+                <button class="btn">팔로우</button>
+                <% end %>
+            <% end %>
+        <%else%>
+        <% end %>
+
               </div>
               </div>
         </div>
@@ -78,23 +93,14 @@
           <%= link_to "좋아요", post_like_path(post), method: "post"%>
         <%end%> 
 
-        <% if user_signed_in? && current_user != post.user %>
-            <% if current_user.followings.include?(post.user) %>
-                <%= form_tag follow_path(post.user.id), method: :delete, class: "right" do %>
-            <button class="btn">언팔</button>
-            <% end %>
-            <% else %>
-                <%= form_tag follows_path, class: "right" do %>
-                <input type="hidden" name="followed_id" value="<%= post.user.id %>" />
-                <button class="btn">팔로우</button>
-                <% end %>
-            <% end %>
-        <%else%>
-        <% end %>
-        
-            
-        
+    
     </div>
+
+   
+
+
+
+
 </div>
             <% end %>
         </div>
