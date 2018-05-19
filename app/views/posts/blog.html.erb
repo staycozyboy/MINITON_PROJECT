@@ -179,30 +179,143 @@
             width="500" height="400" frameborder="0" scrolling="no"></iframe>
         </div><br><br>
 
-        <div class="review" >
+        <div class="review">
+            <div class="width">
             <%= form_tag reviews_path do%>
             <input type="hidden" name="reviewed_id" value="<%= @user.id %>" />
             <input type="hidden" name="reviewing_id" value="<%= current_user.id %>" />
-
-            <a class="waves-effect">
-            <input type="text-area" name="content" size="50" ></a> 
-            <a class="waves-effect waves-light btn-small"><input type="submit" name="action" value="comment" size="10"></a>
-            
+            <input class="height" type="text-area" name="content" >
+            <button class="btn waves-effect waves-light loginbutton" type="submit" name="action">Submit
+            <i class="material-icons right">send</i>
+            </button>
             <%end%>
+            </div>
+
+
 
          <% @reviews.each do |review| %>
-            <ul class="collection"> 
+            <ul class="collection width"> 
                 <li class="collection-item avatxar">
                     <img src="images/yuna.jpg" alt="" class="circle">
                     <span class="title"><%= User.find(review.reviewer_id).user_name%></span>
                     <p>
                         <%= review.content %><br>
                         <%= link_to "delete", review_path(:id), method: "delete"%>
+                        <a href="#!" class="secondary-content nav-items"><i class="material-icons">grade</i></a>
                     </p>
-                    <a href="#!" class="secondary-content"><i class="material-icons">grade</i></a>
+                    
                 </li>
             </ul>
             <%end%>   
+    </div>
+
+</div>
+
+<%# 밑 부분 카드 정렬 %>
+<div class="row">  
+    <div class="col s8">
+        <div class="col s6 ssibal">
+            <div class="card">
+                <div class="card-image waves-effect waves-block waves-light">
+                <img class="activator" src="/assets/makeup2.png">
+                </div>
+                <div class="card-content">
+                <span class="card-title activator grey-text text-darken-4">Card Title<i class="material-icons right">more_vert</i></span>
+                <p><a href="#">This is a link</a></p>
+                </div>
+                <div class="card-reveal">
+                <span class="card-title grey-text text-darken-4">Card Title<i class="material-icons right">close</i></span>
+                <p>Here is some more information about this product that is only revealed once clicked on.</p>
+                </div>
+            </div>
+
+            <div class="card">
+                <div class="card-image waves-effect waves-block waves-light">
+                <img class="activator" src="/assets/makeup2.png">
+                </div>
+                <div class="card-content">
+                <span class="card-title activator grey-text text-darken-4">Card Title<i class="material-icons right">more_vert</i></span>
+                <p><a href="#">This is a link</a></p>
+                </div>
+                <div class="card-reveal">
+                <span class="card-title grey-text text-darken-4">Card Title<i class="material-icons right">close</i></span>
+                <p>Here is some more information about this product that is only revealed once clicked on.</p>
+                </div>
+            </div>
+
+              <div class="card">
+                <div class="card-image waves-effect waves-block waves-light">
+                <img class="activator" src="/assets/makeup2.png">
+                </div>
+                <div class="card-content">
+                <span class="card-title activator grey-text text-darken-4">Card Title<i class="material-icons right">more_vert</i></span>
+                <p><a href="#">This is a link</a></p>
+                </div>
+                <div class="card-reveal">
+                <span class="card-title grey-text text-darken-4">Card Title<i class="material-icons right">close</i></span>
+                <p>Here is some more information about this product that is only revealed once clicked on.</p>
+                </div>
+            </div>
+
+        </div>
+        <div class="col s6 ssibal">
+            <div class="card">
+                <div class="card-image waves-effect waves-block waves-light">
+                <img class="activator" src="/assets/makeup2.png">
+                </div>
+                <div class="card-content">
+                <span class="card-title activator grey-text text-darken-4">Card Title<i class="material-icons right">more_vert</i></span>
+                <p><a href="#">This is a link</a></p>
+                </div>
+                <div class="card-reveal">
+                <span class="card-title grey-text text-darken-4">Card Title<i class="material-icons right">close</i></span>
+                <p>Here is some more information about this product that is only revealed once clicked on.</p>
+                </div>
+            </div>
+            
+            <div class="card">
+                <div class="card-image waves-effect waves-block waves-light">
+                <img class="activator" src="/assets/makeup2.png">
+                </div>
+                <div class="card-content">
+                <span class="card-title activator grey-text text-darken-4">Card Title<i class="material-icons right">more_vert</i></span>
+                <p><a href="#">This is a link</a></p>
+                </div>
+                <div class="card-reveal">
+                <span class="card-title grey-text text-darken-4">Card Title<i class="material-icons right">close</i></span>
+                <p>Here is some more information about this product that is only revealed once clicked on.</p>
+                </div>
+            </div>
+
+              <div class="card">
+                <div class="card-image waves-effect waves-block waves-light">
+                <img class="activator" src="/assets/makeup2.png">
+                </div>
+                <div class="card-content">
+                <span class="card-title activator grey-text text-darken-4">Card Title<i class="material-icons right">more_vert</i></span>
+                <p><a href="#">This is a link</a></p>
+                </div>
+                <div class="card-reveal">
+                <span class="card-title grey-text text-darken-4">Card Title<i class="material-icons right">close</i></span>
+                <p>Here is some more information about this product that is only revealed once clicked on.</p>
+                </div>
+            </div>
+            
+        </div>
+    </div>
+
+<%# 밑 부분 지도 달력 및 등등 %>
+    <div class="col s4">
+        <div class="map">
+      <iframe width="500" height="400" frameborder="0" style="border:0"
+src="https://www.google.com/maps/embed/v1/search?q=대한민국+서울특별시+강남구+역삼1동+역삼로+마루180&key=AIzaSyChlos-0eR0EdApkOguZ6w4F4IxWKZ0M5c" allowfullscreen></iframe>
+
+        </div>
+        <div class="calendar">
+            <iframe src="https://calendar.google.com/calendar/embed?showTitle=0&amp;
+            showNav=0&amp;showDate=0&amp;showPrint=0&amp;showTabs=0&amp;showCalendars=0&amp;showTz=0&amp;height=200&amp;wkst=2&amp;hl=ko&amp;bgcolor=%23ffcccc&amp;ctz=Asia%2FSeoul" style="border:solid 1px #777"
+            width="500" height="400" frameborder="0" scrolling="no"></iframe>
+        </div>
     </div>
 
 </div>
