@@ -1,3 +1,37 @@
+<head>
+
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-beta/js/materialize.min.js"></script>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+</head>
+
+<body>
+
+                    <header>
+
+        <div class="container photo-flex">
+            <div class="profile-photo-box">
+                <img src="/assets/profile.jpg", class="profile-photo"> 
+            </div>
+            <div>
+            <p>PONY</p>
+            <button type="button" class="btn btn-sm loginbutton ">follow</button>
+            <button type="button" class="btn btn-sm loginbutton ">message</button>
+
+          <div class="d-flex">
+          <p class="follow">게시물 &nbsp;</p><p class="follow name">530</p>
+          <div class="space"></div>
+          <p class="follow">팔로워 &nbsp;</p><p class="follow name">40.7k</p>
+          <div class="space"></div>
+          <p class="follow">팔로우 &nbsp;</p><p class="follow name">1</p>
+              </div>
+              </div>
+        </div>
+
+      </header>    
+
+      
 <div class="container">
     <div class="row">
         <div class="col s12 m4">
@@ -12,7 +46,7 @@
                     <p>팔로워 : <%=@user.followers.length%></p>
                     <p>팔로잉 : <%=@user.followings.length%></p>
                     
-
+  
                     
 
                 </div>
@@ -59,12 +93,14 @@
         <% end %>
         
             
-          
+        
     </div>
 </div>
             <% end %>
         </div>
     </div>
+
+        
 </div>
 
 <%= form_tag reviews_path do%>
@@ -79,3 +115,5 @@
     <%= review.content %><br>
     <%= link_to "삭제", review_path(:id), method: 'delete'%><br>
 <%end%>
+
+</body>
